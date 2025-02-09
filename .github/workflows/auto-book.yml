@@ -2,7 +2,7 @@ name: Auto Book CrossFit
 
 on:
   schedule:
-    - cron: "1 0 * * 1,3" # Každý pondelok a stredu o 00:01 CET
+    - cron: "5 0 * * 2,4" # Každý utorok a štvrtok o 00:05 CET
   workflow_dispatch: # Umožní manuálne spustenie
 
 jobs:
