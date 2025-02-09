@@ -12,7 +12,7 @@ const USER_EMAIL = process.env.USER_EMAIL;
   await page.goto(URL);
 
   // Nájdeme správny tréning na základe názvu a trénera
-  const button = await page.locator("//tr[td[contains(., '16:30')]]//td[contains(., 'Silovo-kondičný tréning') and contains(., 'Michal Fázik')]//button[contains(text(), 'PRIHLÁSIŤ')]");
+  const button = await page.locator("//tr[td[contains(., '07:00')]]//td[contains(., 'Silovo-kondičný tréning') and contains(., 'Blahuta Ján')]//button[contains(text(), 'PRIHLÁSIŤ')]");
 
   if (await button.count() === 0) {
     console.error("❌ Tréning nebol nájdený!");
