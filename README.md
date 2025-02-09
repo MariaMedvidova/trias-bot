@@ -13,4 +13,4 @@ Automatické prihlasovanie na tréningy v Trias Performance Gym.
     npm install
 3. **Spusti skript lokálne (test)**:
     ```sh
-    USER_NAME="Michal Sejna" USER_EMAIL="michal.sejna2@gmail.com" node scripts/book_training.js
+    USER_NAME="meno" USER_EMAIL="email" node scripts/book_training.js
