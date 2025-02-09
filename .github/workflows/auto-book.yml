@@ -1,0 +1,34 @@
+name: Auto Book CrossFit
+
+on:
+  schedule:
+    - cron: "1 0 * * 1,3" # Každý pondelok a stredu o 00:01 CET
+  workflow_dispatch: # Umožní manuálne spustenie
+
+jobs:
+  book_training:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run booking script
+        run: node scripts/book_training.js
+        env:
+          USER_NAME: ${{ secrets.USER_NAME }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+
+      - name: Upload debug screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-screenshots
+          path: screenshots/
