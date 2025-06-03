@@ -1,4 +1,5 @@
 const { chromium } = require("playwright");
+const { DateTime } = require("luxon");
 require("dotenv").config();
 
 const URL = "https://triasperformance.sk/calendar";
@@ -7,7 +8,8 @@ const USER_EMAIL = process.env.USER_EMAIL;
 const EXTRA_NAME = process.env.EXTRA_NAME;
 const EXTRA_EMAIL = process.env.EXTRA_EMAIL;
 
-const isTuesday = new Date().getDay() === 2;
+
+const isTuesday = DateTime.now().setZone("Europe/Bratislava").weekday === 2;
 
 async function register(name, email, screenshotSuffix = "") {
   const browser = await chromium.launch({ headless: true });
@@ -57,6 +59,8 @@ async function register(name, email, screenshotSuffix = "") {
 (async () => {
   await register(USER_NAME, USER_EMAIL, "_main");
 
+  console.log(`isTuesday: ${DateTime.now().setZone("Europe/Bratislava").weekday}`);
+  console.log(isTuesday);
   if (isTuesday) {
     await register(EXTRA_NAME, EXTRA_EMAIL, "_extra");
   }

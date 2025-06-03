@@ -4,11 +4,11 @@
     "description": "Automatické prihlasovanie na CrossFit tréningy",
     "main": "scripts/book_training.js",
     "scripts": {
-      "start": "node scripts/book_training.js"
+        "start": "node scripts/book_training.js"
     },
     "dependencies": {
-      "playwright": "^1.42.1",
-      "dotenv": "^16.3.1"
+        "dotenv": "^16.3.1",
+        "luxon": "^3.6.1",
+        "playwright": "^1.42.1"
     }
-  }
-  
+}
