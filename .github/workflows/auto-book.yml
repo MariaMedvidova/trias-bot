@@ -28,6 +28,8 @@ jobs:
         env:
           USER_NAME: ${{ secrets.USER_NAME }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          EXTRA_NAME: ${{ secrets.EXTRA_NAME }}
+          EXTRA_EMAIL: ${{ secrets.EXTRA_EMAIL }}
 
       - name: Upload debug screenshots
         if: always()
